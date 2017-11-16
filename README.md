@@ -3,6 +3,8 @@
 ## File Descriptions
     - Lost_found_adoptable_pets.csv
         - cleaned and adapted dataset from King County, WA (data.gov)
+    - Lost_found_adoptable_pets_new.csv
+        - csv file mentioned above including indexed references
     - Record_Type_Index.csv
         - Generated index for whether the record is for a lost, found, or adoptable pet.
     - Animal_Breed_Index.csv
