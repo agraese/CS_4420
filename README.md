@@ -1,6 +1,7 @@
 # CS 4420 SEMESTER PROJECT
 
 ## File Descriptions
+
     - Lost_found_adoptable_pets.csv
         - cleaned and adapted dataset from King County, WA (data.gov)
     - Lost_found_adoptable_pets_new.csv
@@ -11,3 +12,9 @@
         - Generated index for the animal breed the record is for.
     - boostrap.sql
         - initializes database
+    > FlaskApp
+        - app.py
+            - runs the flask app.
+        > Templates
+            - index.html
+                - Template for the home page
