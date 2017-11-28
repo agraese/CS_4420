@@ -19,15 +19,10 @@ CREATE TABLE animals
     jurisdiction VARCHAR(32),
     Image VARCHAR(32),
     location_for_map VARCHAR(32),
-    Memo VARCHAR
+    Memo VARCHAR(64)
 );
 CREATE TABLE record_type
 (
     Record_type_ID INT NOT NULL PRIMARY KEY,
     Record_type VARCHAR(32)
 );
-CREATE TABLE Animal_Breed
-(
-    Animal_Breed_ID INT NOT NULL PRIMARY KEY,
-    Animal_Breed VARCHAR(32)
-)
