@@ -22,13 +22,9 @@
 ## Run Instructions
 
     In order to run this application, you will need to have flask installed, on a mac, it can be installed by running:
-    ```python
-    pip install flask
-    ```
+    `pip install flask`
     You must be in the **Flask App** directory.  When you are here, you can run the command:
-    ```python
-    python app.py
-    ```
+    `python app.py`
     This should begin running the application on your local host.  The terminal window will tell you the address where it is running.
 
 ### Run on  Cloud9
