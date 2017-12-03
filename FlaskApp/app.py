@@ -2,11 +2,16 @@ import os
 import pandas as pd
 from flask import Flask, render_template
 from sqlalchemy import create_engine
+app = Flask(__name__)
 
 
 
+@app.route("/")
 
 
+def main():
+
+   return render_template('index.html') 
 
 
 file = '/Users/lunaambaye/CS_4420/Lost__found__adoptable_pets.csv'
@@ -33,6 +38,13 @@ for df in pd.read_csv(file2, chunksize=chunksize, iterator=True):
       i+=1
       df.to_sql('table', bread_database, if_exists='append')
       j = df.index[-1] + 1
+
+
+if __name__ == "__main__":
+    app.run()  # comment out
+    #app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))  # use for Cloud9
+
+
 
 
 """
