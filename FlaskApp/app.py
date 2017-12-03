@@ -1,16 +1,22 @@
 import os
 import pandas as pd
+from flask import Flask, render_template
 from sqlalchemy import create_engine
 
 
 
-file = '/Users/lunaambaye/CS_4420/Lost__found__adoptable_pets.csv'
 
+
+
+
+file = '/Users/lunaambaye/CS_4420/Lost__found__adoptable_pets.csv'
+file2 = '/Users/lunaambaye/CS_4420/Animal_Breed_Index.csv'
 
 print (pd.read_csv(file, nrows=5))
+print (pd.read_csv(file2, nrows=5))
 
 pets_database = create_engine('sqlite:///pets_database.db')
-
+bread_database = create_engine('sqlite:///bread_database.db')
 
 chunksize = 100000
 i = 0
@@ -21,9 +27,29 @@ for df in pd.read_csv(file, chunksize=chunksize, iterator=True):
       i+=1
       df.to_sql('table', pets_database, if_exists='append')
       j = df.index[-1] + 1
+for df in pd.read_csv(file2, chunksize=chunksize, iterator=True):
+      df = df.rename(columns={c: c.replace(' ', '') for c in df.columns})
+      df.index += j
+      i+=1
+      df.to_sql('table', bread_database, if_exists='append')
+      j = df.index[-1] + 1
 
 
+"""
+@app.route("/")
+app = Flask(__name__)
+"""
 
+"""
+def main():
+    
+    return render_template('index.html') 
+    
+if __name__ == "__main__":
+    app.run()  # comment out
+    #app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))  # use for Cloud9
+
+"""
 
 
 
