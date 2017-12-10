@@ -10,7 +10,7 @@ app.config['SECRET_KEY'] = "random string"
 db = SQLAlchemy(app)
 
 class pets(db.Model):
-    animal_id = db.Column('animal_id', db.Integer, primary_key = True)
+    animal_id = db.Column('animal_id', db.Integer, primary_key=True)
     animal_breed = db.Column(db.String(50))
     animal_name = db.Column(db.String(50))
     animal_gender = db.Column(db.String(20))
@@ -30,17 +30,18 @@ def __init__(self, animal_name, animal_breed, animal_gender, image, record_type,
 
 @app.route('/')
 def index():
-    return render_template('index.html', pets = pets.query.all())
+    return render_template('index.html', pets=pets.query.all())
 
 @app.route('/narrow')
 def narrow():
-    type_search = request.form['type']
-    #gender_search = request.form['gender']
-    #aorl_search = request.form['aorl']
+    type_search = request.args.get('type', None)
+    #gender_search = request.args.get['gender']
+    #aorl_search = request.args.get['aorl']
 
-    result = pets.query.filter_by(animal_type='Dog')
+    result = pets.query.filter_by(animal_type=type_search)
 
     return render_template('index.html', pets=result)
+
 
 def seed():
 
@@ -65,6 +66,7 @@ def seed():
     animal7 = pets(animal_name='Flounder', animal_breed='Domestic Shorthair', animal_gender='Male', image='http://www.petharbor.com/get_image.asp?RES=Detail&LOCATION=KING&ID=A543738', record_type='Adoptable', animal_type='Cat', color='Brn Tabby')
     db.session.add(animal7)
     db.session.commit()
+
 
 if __name__ == "__main__":
     if database_exists('sqlite:///pets.sqlite3'):
