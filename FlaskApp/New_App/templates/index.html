@@ -33,28 +33,31 @@
         <hr>
 
         <!-- This will need to be changed to be able to select and narrow results -->
-        <select>
-            <option value="typeOfAnimal">Type of Animal</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
+        <form action="/narrow">
+            <select name="type">
+                <option value="typeOfAnimal">Type of Animal</option>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+            </select>
+            <input type="submit">
+        </form>
+
+        <select name="aorl">
+            <option value="aorl">Adoptable or Lost</option>
+            <option value="Adoptable">Adoptable</option>
+            <option value="Lost">Lost</option>
         </select>
 
-        <select>
-            <option value="color">Color</option>
-            <option value="brown">Brown</option>
-            <option value="black">Black</option>
-        </select>
-
-        <select>
+        <select name="gender">
             <option value="gender">Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
         </select>
-
-        <button>Narrow Results</button>
-
+        <br></br>
+        <!--<input type="submit"> -->
+        <!-- </form> -->
+        </hr>
         <hr>
-
         <!-- Need to pull data from databse dynamically -->
         {% for pet in pets %}
         <div class="row">
@@ -73,7 +76,7 @@
         </div>
         {% endfor %}
 
-        <hr>
+        </hr>
 
 </body>
 

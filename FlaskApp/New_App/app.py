@@ -31,6 +31,16 @@ def __init__(self, animal_name, animal_breed, animal_gender, image, record_type,
 def index():
     return render_template('index.html', pets = pets.query.all())
 
+@app.route('/narrow')
+def narrow():
+    type_search = request.form['type']
+    #gender_search = request.form['gender']
+    #aorl_search = request.form['aorl']
+
+    result = pets.query.filter_by(animal_type='Dog')
+
+    return render_template('index.html', pets=result)
+
 def seed():
 
     animal1 = pets( animal_name='Izzy', animal_breed='Golden Retriever', animal_gender='Female', image='http://www.petharbor.com/get_image.asp?RES=Detail&LOCATION=PUBLIC&ID=1771998', record_type='Lost', animal_type='Dog', color='Unknown')
