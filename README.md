@@ -40,3 +40,15 @@ This should begin running the application on your local host.  The terminal wind
 
 > FlaskApp
 - Change app.py to be app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))
+
+
+## SQLALCHEMY
+
+ sql alchemy creates local databases from csv files. 
+ to configure the app to sqlalchemy you must install sqlalchemy first
+ once it's installed we have to configure sqlalchemy engine: http://docs.sqlalchemy.org/en/latest/core/engines.html 
+ 
+
+
+ 
+
