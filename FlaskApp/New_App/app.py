@@ -1,6 +1,7 @@
 from flask import Flask, request, flash, url_for, redirect, render_template
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy_utils import database_exists 
+import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pets.sqlite3'
@@ -67,7 +68,8 @@ def seed():
 
 if __name__ == "__main__":
     if database_exists('sqlite:///pets.sqlite3'):
-        app.run()
+        # app.run()
+        app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080))) 
     else:
         db.create_all()
         seed()
