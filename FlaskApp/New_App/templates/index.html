@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lost and Found Pets</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link rel="index" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active">
+                        <a href="#">Home</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">Lost and Found Pets</h3>
+            <p>Pets that are Adoptable Today!</p>
+        </div>
+
+        <div class="jumbotron">
+            <h1>Lost and Found Pets</h1>
+            <p class="lead"></p>
+            <p>
+                <p>There is a loving animal out there waiting to be adopted today!</p>
+            </p>
+        </div>
+
+        <hr>
+
+        <!-- This will need to be changed to be able to select and narrow results -->
+        <select>
+            <option value="typeOfAnimal">Type of Animal</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+        </select>
+
+        <select>
+            <option value="color">Color</option>
+            <option value="brown">Brown</option>
+            <option value="black">Black</option>
+        </select>
+
+        <select>
+            <option value="gender">Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <button>Narrow Results</button>
+
+        <hr>
+
+        <!-- Need to pull data from databse dynamically -->
+        {% for pet in pets %}
+        <div class="row">
+            <div class="col-md-6">
+                <a href="#">
+                    <img class="img-fluid rounded mb-3 mb-md-0" <img src={{pet.image}} alt="" style="height:300px; width:450px">
+                </a>
+            </div>
+
+            <div class="col-md-6">
+                <h3>{{pet.animal_breed}}</h3>
+                <p>Type: {{pet.animal_type}}</p>
+                <p>Color: {{pet.color}}</p>
+                <p>Gender: {{pet.animal_gender}}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+        <hr>
+
+</body>
+
+</html>
