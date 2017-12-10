@@ -14,8 +14,8 @@ def main():
    return render_template('index.html') 
 
 
-file = '/Users/lunaambaye/CS_4420/Lost__found__adoptable_pets.csv'
-file2 = '/Users/lunaambaye/CS_4420/Animal_Breed_Index.csv'
+file = '/home/ubuntu/project/CS4420/CS_4420/Lost__found__adoptable_pets.csv'
+file2 ='/home/ubuntu/project/CS4420/CS_4420/Animal_Breed_Index.csv'
 
 print (pd.read_csv(file, nrows=5))
 print (pd.read_csv(file2, nrows=5))
@@ -41,8 +41,8 @@ for df in pd.read_csv(file2, chunksize=chunksize, iterator=True):
 
 
 if __name__ == "__main__":
-    app.run()  # comment out
-    #app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))  # use for Cloud9
+    #app.run()  # comment out
+    app.run(host=os.getenv('IP', '0.0.0.0'),port=int(os.getenv('PORT', 8080)))  # use for Cloud9
 
 
 
