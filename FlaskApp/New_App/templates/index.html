@@ -19,51 +19,49 @@
                 </ul>
             </nav>
             <h3 class="text-muted">Search for your Animal</h3>
-            <p>Pets that are Adoptable or Lost</p>
         </div>
 
         <div class="jumbotron">
-            <h1>Lost and Found Pets</h1>
+            <h1>Search for Your Pet</h1>
             <p class="lead"></p>
             <p>
-                <p>Narrow your search of animals by Type of Animal, Adoptable or Lost, or Gender!</p>
+                <p>Narrow your search of animals by Type of Animal, Adoptable or Lost, or Gender! You may select one option to narrow your search by.</p>
             </p>
         </div>
 
         <hr>
 
-        <!-- This will need to be changed to be able to select and narrow results -->
+        <!-- Select options for narrowing results -->
         <form action="/narrow_type">
-            <select name="type">
+            <select name="type" style="width: 160px;">
                 <option value="typeOfAnimal">Type of Animal</option>
                 <option value="Dog">Dog</option>
                 <option value="Cat">Cat</option>
             </select>
-            <input type="submit">
+            <input type="submit" style="width: 160px;">
         </form>
 
         <form action="/narrow_adoptable">
-            <select name="aorl">
+            <select name="aorl" style="width: 160px;">
                 <option value="aorl">Adoptable or Lost</option>
                 <option value="Adoptable">Adoptable</option>
                 <option value="Lost">Lost</option>
             </select>
-            <input type="submit">
+            <input type="submit" style="width: 160px;">
         </form>
 
         <form action="/narrow_gender">
-            <select name="gender">
+            <select name="gender" style="width: 160px;">
                 <option value="gender">Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
-            <input type="submit">
+            <input type="submit" style="width: 160px;">
         </form>
-
-        <br></br>
         </hr>
         <hr>
-        <!-- Need to pull data from databse dynamically -->
+        
+        <!-- Pulls from database -->
         {% for pet in pets %}
         <div class="row">
             <div class="col-md-6">
@@ -79,6 +77,8 @@
                 <p>Gender: {{pet.animal_gender}}</p>
             </div>
         </div>
+        
+        <hr>
         {% endfor %}
 
         </hr>
