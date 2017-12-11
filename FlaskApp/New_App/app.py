@@ -53,7 +53,7 @@ def narrow_adoptable():
 @app.route('/narrow_gender')
 def narrow_gender():
     type_search = request.args.get('gender', None)
-    result = pets.query.filter_by(animal_type=type_search)
+    result = pets.query.filter_by(animal_gender=type_search)
 
     return render_template('index.html', pets=result)
 
