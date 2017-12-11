@@ -23,14 +23,22 @@
   > Templates
   - index.html
     - Template for the home page
+  - NewApp **This is the app that should be run for the project**
+    - app.py
+    > Templates
+      - index.html
 
 ## Run Instructions
 
-In order to run this application, you will need to have flask installed, on a mac, it can be installed by running:
+In order to run this application, you will need to have several dependencies installed, on a mac, it can be installed by running:
 
     pip install flask
+    pip install sqlalchemy
+    pip install sqlalchemy_utils
+    pip install flask_sqlalchemy
 
-You must be in the **Flask App** directory.  When you are here, you can run the command:
+
+You must be in the **Flask App/NewApp** directory.  When you are here, you can run the command:
 
     python app.py
 
