@@ -33,7 +33,7 @@
         <hr>
 
         <!-- This will need to be changed to be able to select and narrow results -->
-        <form action="/narrow">
+        <form action="/narrow_type">
             <select name="type">
                 <option value="typeOfAnimal">Type of Animal</option>
                 <option value="Dog">Dog</option>
@@ -42,20 +42,25 @@
             <input type="submit">
         </form>
 
-        <select name="aorl">
-            <option value="aorl">Adoptable or Lost</option>
-            <option value="Adoptable">Adoptable</option>
-            <option value="Lost">Lost</option>
-        </select>
+        <form action="/narrow_adoptable">
+            <select name="aorl">
+                <option value="aorl">Adoptable or Lost</option>
+                <option value="Adoptable">Adoptable</option>
+                <option value="Lost">Lost</option>
+            </select>
+            <input type="submit">
+        </form>
 
-        <select name="gender">
-            <option value="gender">Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>
+        <form action="/narrow_gender">
+            <select name="gender">
+                <option value="gender">Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <input type="submit">
+        </form>
+
         <br></br>
-        <!--<input type="submit"> -->
-        <!-- </form> -->
         </hr>
         <hr>
         <!-- Need to pull data from databse dynamically -->

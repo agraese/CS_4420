@@ -32,16 +32,30 @@ def __init__(self, animal_name, animal_breed, animal_gender, image, record_type,
 def index():
     return render_template('index.html', pets=pets.query.all())
 
-@app.route('/narrow')
+
+@app.route('/narrow_type')
 def narrow():
     type_search = request.args.get('type', None)
-    #gender_search = request.args.get['gender']
-    #aorl_search = request.args.get['aorl']
-
     result = pets.query.filter_by(animal_type=type_search)
 
     return render_template('index.html', pets=result)
 
+
+@app.route('/narrow_adoptable')
+def narrow_adoptable():
+    type_search = request.args.get('aorl', None)
+
+    result = pets.query.filter_by(record_type=type_search)
+
+    return render_template('index.html', pets=result)
+
+
+@app.route('/narrow_gender')
+def narrow_gender():
+    type_search = request.args.get('gender', None)
+    result = pets.query.filter_by(animal_type=type_search)
+
+    return render_template('index.html', pets=result)
 
 def seed():
 
